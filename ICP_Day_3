@@ -1,0 +1,38 @@
+##ICP FOR DAY 3
+
+##1
+
+##  PART A
+def search_user_string(string_input):
+    dictionary = dict()
+    string_input = string_input.lower()
+
+    for words in user_input.split():
+        if words not in dictionary:
+            dictionary[words] = 1
+        else:
+            dictionary[words] += 1
+    return dictionary
+
+
+
+user_input = input("Enter a sentence: ")  ##user inputs string
+
+
+print(search_user_string(user_input))
+
+## PART B
+def user_vowel_count(user_input):
+
+    vowels = set("aeiou")
+    count = 0
+
+    for a in user_input:
+        if a in vowels:
+            count += 1
+    print("Number of vowels in string "+str(count))
+
+print(user_vowel_count(user_input))
+
+
+
