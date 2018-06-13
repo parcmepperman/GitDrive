@@ -1,0 +1,39 @@
+# ICP Day 3, #2
+#2.1 Import libraries
+import urllib.request
+from bs4 import BeautifulSoup
+import os
+
+#2.2 Define link put variable
+link = "https://en.wikipedia.org/wiki/List_of_state_and_union_territory_capitals_in_India"
+
+#2.3 Get the URL
+source = urllib.request.urlopen(link)
+
+#2.4 parse source code
+soup = BeautifulSoup(source, "html.parser")
+
+#2.5
+print(soup.title.string)
+#2.6,2.7 find all links, iterate over
+
+for link in soup.find_all('a'):
+    print(link.get("href"))
+print(soup.find_all("a"))
+
+#Second ppt page for question 2
+#2.2.1, 2.2.2 extact info in table, detect if it is the right table
+body = soup.find('table', {'class': 'wikitable sortable plainrowheaders'})
+table_j = body.find_all('tr')
+
+#2.2.3, 2.2.4 for loop iterating through 'tr' attribute
+for tr in table_j:
+    td = tr.find_all("td")
+    #find all 'td', 'th' and print them
+    print(td)
+    th = tr.find_all("th")
+    print(th)
+
+
+
+
